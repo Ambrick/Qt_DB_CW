@@ -6,7 +6,14 @@
 #include "QSqlQuery"
 #include <QtDebug>
 #include <QFileInfo>
+#include <QComboBox>
+#include <QSqlTableModel>
+#include <QTableView>
+#include <QStandardItemModel>
+#include <QStandardItem>
+#include <QMessageBox>
 #include "sudentinfo.h"
+#include "sudentedit.h"
 
 namespace Ui {
 class Login;
@@ -27,22 +34,22 @@ public:
         mydb.close();
         mydb.removeDatabase(QSqlDatabase ::defaultConnection);
     }
-    bool connOpen(QString filename){
-        QSqlDatabase mydb = QSqlDatabase ::addDatabase("QSQLITE");
-        mydb.setDatabaseName("C:/Users/Qdera/Desktop/"+filename);
 
-       if  (!mydb.open()){
-           qDebug()<<("Failed...");
-           return false;
-       }
-       else{
-           qDebug()<<("Connected...");
-           return true;
-       }
+    void connOpen(QString filename){
+        QSqlDatabase mydb = QSqlDatabase ::addDatabase("QSQLITE");
+        mydb.setDatabaseName(filename);
+        mydb.open();
     }
 
+    bool DoesRowExist(QString El, QString Table, QString Column){
+        QSqlQuery query("SELECT * FROM "+Table+" WHERE "+Column+"='"+El+"'");
+        if (query.next())
+            return true;
+        return false;
+    }
+
+
 private slots:
-    void on_pushButton_clicked();
 
     void on_Go_clicked();
 

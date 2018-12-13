@@ -27,15 +27,18 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         login.cpp \
-    sudentinfo.cpp
+    sudentinfo.cpp \
+    sudentedit.cpp
 
 HEADERS += \
         login.h \
-    sudentinfo.h
+    sudentinfo.h \
+    sudentedit.h
 
 FORMS += \
         login.ui \
-    sudentinfo.ui
+    sudentinfo.ui \
+    sudentedit.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

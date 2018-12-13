@@ -23,8 +23,10 @@ public:
     explicit sudentinfo(QWidget *parent = nullptr);
     ~sudentinfo();
 
+    QSqlDatabase mydb;
+
 private slots:
-    void on_pushButton_2_clicked();
+
 
 private:
     Ui::sudentinfo *ui;
