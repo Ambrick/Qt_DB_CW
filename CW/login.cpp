@@ -15,27 +15,26 @@ Login::~Login()
 
 void Login::on_Go_clicked()
 {
-    connOpen("users.db");
+    connOpen("users");
 
-    QSqlQuery query("SELECT Rights FROM user Where Login='"+ui->Log->text()+"' and Pass='"+ui->Pass->text()+"';");
-    if (query.next()){
+    QSqlQuery query("SELECT `Rights` FROM `client` WHERE Login='"+ui->Log->text()+"' and Pass='"+ui->Pass->text()+"';");
+    query.next();
+    if (query.value(0).toString()=="admin"){
+        ui->statusBar->showMessage("You have admin's rights!");
         connClose();
-        if (query.value(0).toString()=="admin"){
-            ui->statusBar->showMessage("You have admin's rights!");
-            sudentedit edit;
-            edit.setModal(true);
-            edit.exec();
-        }
-        else {
-            ui->statusBar->showMessage("You have user's rights!");
-            sudentinfo info;
-            info.setModal(true);
-            info.exec();
-        }
-        return;
+        sudentedit edit;
+        edit.setModal(true);
+        edit.exec();
+    } else if (query.value(0).toString()=="client"){
+        ui->statusBar->showMessage("You have user's rights!");
+        connClose();
+        sudentinfo info;
+        info.setModal(true);
+        info.exec();
     }
-    ui->statusBar->showMessage("Wrong login or password!");
     connClose();
+    ui->statusBar->showMessage("Wrong login or password!");
+    return;
 }
 
 

@@ -36,13 +36,16 @@ public:
     }
 
     void connOpen(QString filename){
-        QSqlDatabase mydb = QSqlDatabase ::addDatabase("QSQLITE");
-        mydb.setDatabaseName(filename);
-        mydb.open();
+        QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
+        db.setHostName("127.0.0.1");
+        db.setUserName("root");
+        db.setPassword("roooooot");
+        db.setDatabaseName(filename);
+        db.open();
     }
 
     bool DoesRowExist(QString El, QString Table, QString Column){
-        QSqlQuery query("SELECT * FROM "+Table+" WHERE "+Column+"='"+El+"'");
+        QSqlQuery query("SELECT * FROM `"+Table+"` WHERE `"+Column+"`='"+El+"'");
         if (query.next())
             return true;
         return false;
