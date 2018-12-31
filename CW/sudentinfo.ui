@@ -6,99 +6,168 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>623</width>
-    <height>432</height>
+    <width>1041</width>
+    <height>333</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>DB view</string>
   </property>
   <property name="layoutDirection">
-   <enum>Qt::RightToLeft</enum>
+   <enum>Qt::LeftToRight</enum>
   </property>
   <widget class="QTableView" name="Table">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>40</y>
-     <width>601</width>
-     <height>381</height>
+     <x>234</x>
+     <y>9</y>
+     <width>801</width>
+     <height>314</height>
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="Group">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>131</width>
-     <height>20</height>
+     <x>9</x>
+     <y>9</y>
+     <width>220</width>
+     <height>314</height>
     </rect>
    </property>
-   <property name="maximumSize">
-    <size>
-     <width>131</width>
-     <height>20</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="Method">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>10</y>
-     <width>101</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>131</width>
-     <height>20</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="Discipline">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>10</y>
-     <width>131</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>131</width>
-     <height>20</height>
-    </size>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="Go">
-   <property name="geometry">
-    <rect>
-     <x>400</x>
-     <y>10</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Go</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="Set_default">
-   <property name="geometry">
-    <rect>
-     <x>480</x>
-     <y>10</y>
-     <width>131</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>*Set default view</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>Статистика</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Поиск:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="checkBox">
+             <property name="text">
+              <string>Переключатель искомого</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="Search">
+           <property name="placeholderText">
+            <string>Фамилия/название работы:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Сортировка:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="SortType"/>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>Предел:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSlider" name="Slider">
+             <property name="maximum">
+              <number>40</number>
+             </property>
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="Count">
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QPushButton" name="toSort">
+           <property name="text">
+            <string>Sort</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>Среднее арифметическое по группам:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="toAVG">
+           <property name="text">
+            <string>Get average</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>Студенты не сдавшие работу:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="toGetBadStudents">
+           <property name="text">
+            <string>Get</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QPushButton" name="toDefault">
+         <property name="text">
+          <string>Default</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

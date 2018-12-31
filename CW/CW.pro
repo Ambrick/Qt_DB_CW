@@ -33,7 +33,8 @@ SOURCES += \
 HEADERS += \
         login.h \
     sudentinfo.h \
-    sudentedit.h
+    sudentedit.h \
+    biblio.h
 
 FORMS += \
         login.ui \
